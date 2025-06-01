@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WASM Calculator</title>
+    <style>
+        .calculator {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        
+        .display {
+            grid-column: 1 / span 4;
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: right;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        button {
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            background-color: #f8f8f8;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <script type="module">
+        import init from './pkg/wasm_calculator.js';
+        
+        async function run() {
+            await init();
+        }
+        
+        run();
+    </script>
+</body>
+</html> 
