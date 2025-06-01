@@ -76,8 +76,8 @@ wasmedge calculator.wasm
 ## Images
 
 <p align="center">
-  <img src="images/imga.png" height="200">
-  <img src="images/imgb.png" height="200">
+  <img src="images/imga.png" height="600">
+  <img src="images/imgb.png" height="600">
 </p>
 
 ## Dependencies
