@@ -75,11 +75,10 @@ wasmedge calculator.wasm
 
 ## Images
 
-![Calculator Interface](./wasmathecian/Screenshot%202025-06-01%20at%207.58.25%20PM.png)
-*Main calculator interface with colored output and status display*
-
-![Calculator in Action](./wasmathecian/Screenshot%202025-06-01%20at%207.58.08%20PM.png)
-*Example calculation showing scientific functions and memory operations*
+<p align="center">
+  <img src="images/imga.png" height="200">
+  <img src="images/imgb.png" height="200">
+</p>
 
 ## Dependencies
 
