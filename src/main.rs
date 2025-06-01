@@ -1,3 +1,5 @@
+use wasm_calculator::run;
+
 fn main() {
-    wasm_calculator::run();
+    run();
 } 

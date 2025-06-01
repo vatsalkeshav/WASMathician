@@ -1,90 +1,84 @@
-# WASM Calculator
+<h1 style="color:#ff5722">WASMathician</h1>
 
-A simple calculator implemented in Rust and compiled to WebAssembly, with WasmEdge verification support.
-
-## Prerequisites
-
-1. Install Rust and Cargo:
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
-
-2. Install WasmEdge:
-```bash
-curl -sSf https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/install.sh | bash
-```
-
-3. Add WebAssembly target:
-```bash
-rustup target add wasm32-wasm
-```
-
-4. Install wasm-pack:
-```bash
-cargo install wasm-pack
-```
-
-## Building the Project
-
-1. Build the WebAssembly module:
-```bash
-wasm-pack build --target web
-```
-
-2. Verify with WasmEdge:
-```bash
-wasmedge validate ./pkg/wasm_calculator_bg.wasm
-```
-
-## Running the Calculator
-
-1. Start a local server (using Python for example):
-```bash
-python3 -m http.server 8000
-```
-
-2. Open your browser and visit:
-```
-http://localhost:8000
-```
-
-## Running with WasmEdge
-
-To run the calculator using WasmEdge runtime:
-
-```bash
-wasmedge --dir .:. ./pkg/wasm_calculator_bg.wasm
-```
+<span style="color:#ff9800"><b>A feature-rich calculator built with Rust and WebAssembly, with comprehensive mathematical capabilities</b></span>
 
 ## Features
 
-- Basic arithmetic operations (+, -, *, /)
-- Clear function
-- Decimal point support
-- Responsive grid layout
-- WasmEdge validation
+- 🧮 Basic arithmetic operations 
+- 📐 Trigonometric functions 
+- 📊 Scientific operations 
+- 💾 Memory functions 
+- 📜 Calculation history tracking
+- ⚡ WebAssembly support because it's great
 
-## Project Structure
+## Prerequisites
+- [Rust](https://www.rust-lang.org/tools/install)
+- [WasmEdge Runtime](https://wasmedge.org/docs/start/install) (optional; other wasm runtimes can also be used)
 
+## Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/vatsalkeshav/WASMathician.git
+   cd wasm-calculator
+   ```
+
+2. **Build for WebAssembly:**
+   ```bash
+   # Add wasm32-wasip1 target
+   rustup target add wasm32-wasip1
+   
+   # Build for WebAssembly
+   cargo build --target wasm32-wasip1 --release
+   
+   # Optional: Create AOT-compiled version for better performance
+   wasmedgec target/wasm32-wasip1/release/wasm-calculator.wasm calculator.wasm
+   ```
+
+## Usage
+
+### WebAssembly Execution
+```bash
+# Regular WebAssembly execution
+wasmedge target/wasm32-wasip1/release/wasm-calculator.wasm
+
+# Or run the AOT-compiled version (said to be faster)
+wasmedge calculator.wasm
 ```
-wasm-calculator/
-├── src/
-│   └── lib.rs         # Main calculator implementation
-├── Cargo.toml         # Project dependencies
-├── index.html         # Web interface
-└── README.md         # This file
-```
 
-## Security Considerations
+### Available Commands
 
-The calculator has been built with security in mind:
-- Input validation for all operations
-- Memory safety through Rust's ownership system
-- WasmEdge validation for additional security
+#### **Basic Operations**
+- **Numbers:** `any number`
+- **Operators:** `` + ``, `` - ``, `` * ``, `` / ``, `` ^ ``, `` root ``
+- **Calculate:** `` = ``
+- **Clear:** `` c ``
 
-## Performance
+#### **Memory Functions**
+- **Store:** `` ms ``
+- **Recall:** `` mr ``
+- **Clear memory:** `` mc ``
+- **Add to memory:** `` m+ ``
 
-The calculator benefits from:
-- Rust's zero-cost abstractions
-- WebAssembly's near-native performance
-- Optimized build settings in Cargo.toml 
+#### **Scientific Functions**
+- **Trigonometric:** `` sin ``, `` cos ``, `` tan ``
+- **Inverse trig:** `` asin ``, `` acos ``, `` atan ``
+- **Logarithmic:** `` ln ``, `` log ``
+- **Other:** `` sqrt ``, `` ! ``, `` % ``
+
+#### **Other Commands**
+- **Toggle angle mode (radian/degree):** `` mode ``
+- **Show history:** `` hist ``
+- **Clear history:** `` clrhist ``
+- **Show help:** `` help ``
+- **Exit:** `` exit ``, `` quit ``
+
+## Images
+
+
+
+## Dependencies
+
+- `colored`: Terminal colors and formatting
+- `term_size`: Terminal size detection
+- `wasi`: WebAssembly System Interface
